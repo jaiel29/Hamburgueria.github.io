@@ -1,0 +1,149 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+nav{
+    background-color: #E1A83A;
+    width: 100%;
+    height: 80px;   
+}
+
+img{
+    margin-top: 10px;
+    margin-left: 20px;
+    width: 400x;
+    height: 70px;
+}
+ul, li{
+    float: right;
+    list-style: none;
+    margin: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+}
+
+main{
+    width: 100%;    
+    height: 80vh;
+    background-color: rgb(215, 214, 214);
+}
+
+h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    font-family: sans-serif;
+}
+
+.conteiner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+.coluna1{
+
+    width: 300px;
+    height: 400px;    
+    font-family: sans-serif;
+}
+
+.item01, .item02, .item03, .item04, .item05, .item06, .item07, .item08{ /*coluna1*/
+    background-color: white;
+    width: 295px;
+    height:40px;
+    margin: 5px;
+    align-content: center;
+    border-radius: 10px;
+    padding: 5px;
+    font-size: 20px;
+    
+}
+.coluna1 :hover{
+    background-color: #E1A83A;
+    color:#880016 ;
+}
+.coluna2 :hover{
+    background-color: #E1A83A;
+    color:#880016 ;
+}
+
+.coluna2{
+    
+    width: 150px;
+    height: 400px;
+    text-align: center;
+    color: rgb(189, 18, 18);
+    font-family: sans-serif;
+    margin: 10px;
+    
+}
+
+
+.item1 , .item2, .item3, .item4, .item5, .item6, .item7, .item8, .item9{    /*coluna2*/
+    align-content: center;
+    background-color: white;
+    width: 100px;
+    height: 40px;
+    margin: 5px;
+    padding: 5px;
+    font-size: 25px;
+}
+
+#linha-horizontal {
+    border: 1px solid #a2a2a2;
+}
+
+.conteiner1{
+    background-color:rgb(215, 214, 214) ;
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+.cancelar{
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    background-color: red;
+    border-radius: 30px;
+    border: solid red;
+    width: 300px;
+    height: 55px;
+    font-size: 50px;
+    text-align: center;
+}
+
+.Confirmar{
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    background-color: rgb(0, 255, 13);
+    border-radius: 30px;
+    border: solid rgb(0, 255, 13);
+    width: 300px;
+    height: 55px;
+    font-size: 50px;
+    text-align: center;
+    color: black;
+}
+
+.Adicionar{
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 30px;
+    border: solid rgb(0, 0, 0);
+    width: 300px;
+    height: 55px;
+    font-size: 50px;
+    text-align: center;
+    color: white;
+
+}
