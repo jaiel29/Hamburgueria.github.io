@@ -1,0 +1,65 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+body{
+    background-color: #D9D9D9;
+}
+
+nav{
+    background-color: #E1A83A;
+    width: 100%;
+    height: 80px;
+}
+
+img{
+    margin-top: 10px; 
+    margin-left: 20px;
+    width: 400x;
+    height: 70px;
+}
+
+ul, li{
+    float: right;
+    list-style: none;
+    margin: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.conteiner{
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.caixa{
+    width: 600px;
+    text-align: center;
+    
+}
+
+p{
+    font-size: 60px;
+    font-weight: bolder;
+    font-family: sans-serif;
+    margin-bottom: 30px;
+}
+
+
+
+
+.inicio{
+    width: 200px;
+    height: 55px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    align-content: center;
+    font-family: sans-serif;
+    font-size: 40px;
+    border-radius: 22px;
+}

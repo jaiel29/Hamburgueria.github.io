@@ -2,6 +2,9 @@
     padding: 0px;
     margin: 0px;
 }
+body{
+    background-color: #D9D9D9;
+}
 
 nav{
     background-color: #E1A83A;
@@ -25,15 +28,9 @@ ul, li{
     
 }
 
-main{
-    width: 100%;    
-    height: 86vh;
-    background-color: rgb(215, 214, 214);
-}
-
 .conteiner{
     width: 100vw;
-    height: 80vh;
+    height: 70vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -41,7 +38,15 @@ main{
     
 }
 
-
+.pedido:hover{
+    background-color: #E1A83A;
+    color:white ;
+    cursor: pointer; 
+    transition: 0.5s;
+    box-shadow: 10px 10px 5px 2px rgb(183, 183, 183); 
+    transform: scale(1.0);
+    display: inline-block;
+}
 
 .pedido{
     width: 300px;
@@ -52,27 +57,47 @@ main{
     font-size: 40px;    
     background-color: white;
     border-radius: 20px; 
-    box-shadow: 10px 10px 5px 2px rgb(183, 183, 183);  
-    cursor: pointer;    
+    cursor: pointer;
+    border: none;   
 }
 
-#linha-horizontal {
+.linha-horizontal {
     border: 1px solid #a2a2a2;
 }
 
 .conteiner1{
-    background-color:rgb(215, 214, 214);    
+    background-color:rgb(215, 214, 214) ;
+    display: flex;
+    justify-content: space-evenly;
+
 }
 
-.cancelar{
+.Confirmar, .Adicionar, .cancelar{
+    border-radius: 30px;
+    width: 200px;
+    height: 40px;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 30px;
+    font-weight: bolder;
+    align-content: center;
     margin-left: 20px;
     margin-top: 10px;
     margin-bottom: 20px;
-    background-color: red;
-    border-radius: 30px;
-    border: solid red;
-    width: 300px;
-    height: 55px;
-    font-size: 50px;
-    text-align: center;
+    box-shadow: 3px 2px 1px 1px rgb(183, 183, 183); 
+}
+
+.cancelar{
+    background-color: #FF3131;  
+
+}
+
+.Confirmar{
+    background-color: #29D825;       
+}
+
+.Adicionar{
+    background-color: rgb(0, 0, 0);
+    color: white;
+
 }
