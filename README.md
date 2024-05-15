@@ -47,14 +47,14 @@ Desenvolver um sistema de gestão para uma hamburgueria, visando otimizar seus p
 |[![JS](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)|
 
 ## Paleta de cores e formato de texto
-| Cor Primária     | Código Hexadecimal |
-| --------------- || ------------------ |
+| Cores Principais    | Código Hexadecimal |
+| --------------- | ------------------ |
 | Amarelo Dourado  | #E1A83A            |
 | Cinza Escuro     | #B4ADAD            |
 | Vermelho Escuro  | #880016            |
 
-| Cor Secundária      | Código Hexadecimal|
-| ------------------ || ----------------- |
+| Cores Secundárias      | Código Hexadecimal|
+| ------------------ | ----------------- |
 | Branco              | #000000           |
 | Preto               | #FFFFFF           |
 | Azul Marinho        | #004AAD           |
