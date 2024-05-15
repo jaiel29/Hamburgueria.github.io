@@ -31,8 +31,9 @@ Desenvolver um sistema de gestão para uma hamburgueria, visando otimizar seus p
 - Model
     - config.py
 - View
-    - css
-    - images
+    - assets
+      - css
+      - images
     - pages
 - Controller
     - app.py
