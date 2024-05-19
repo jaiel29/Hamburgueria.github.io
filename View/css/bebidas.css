@@ -2,6 +2,7 @@
     padding: 0px;
     margin: 0px;
 }
+
 body{
     background-color: #D9D9D9;
 }
@@ -25,19 +26,20 @@ ul, li{
     font-size: 20px;
     font-weight: bold;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
-main{
-    width: 100%; 
-    background-color: rgb(215, 214, 214);
+    
 }
 
 h1{
+    margin-top: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 40px;
+    font-size: 40px;    
     font-family: sans-serif;
+}
+
+main{
+    height: 78vh;
 }
 
 .conteiner{
@@ -45,14 +47,24 @@ h1{
     display: flex;  
     justify-content: center;
     align-items: center;
+    margin-bottom: 50px;
 }
 
-.coluna1{
+/*<<<coluna01>>>*/
+.item01, .item02, .item03, .item04, .item05, .item06, .item07, .item08, .item09{    
     width: 300px;
-    height: 500px;    
+    height: 45px;
+    margin: 5px;
+    background-color: white;
+    border-radius: 10px;
+    align-content: center;
+    padding: 3px;
+    font-size: 22px;
     font-family: sans-serif;
-    margin-right: 10px;
-}   
+    box-shadow: 10px 10px 5px 2px rgb(183, 183, 183); 
+    cursor: pointer; 
+}
+/*<<<fim coluna01>>>*/
 
 .coluna1 :hover{
     background-color: #E1A83A;
@@ -62,42 +74,22 @@ h1{
     background-color: #E1A83A;
     color:#880016 ;
 }
-.item01, .item02, .item03, .item04, .item05, .item06, .item07, .item08{ /*coluna1*/
-    background-color: white;
-    width: 300px;
-    height:45px;
-    margin: 5px;
-    align-content: center;
-    border-radius: 10px;
-    padding: 5px;
-    font-size: 22px;
-    box-shadow: 10px 10px 5px 2px rgb(183, 183, 183); 
-    cursor: pointer; 
-}
 
-.coluna2{
-    
+/*coluna2*/
+.item1, .item2, .item3, .item4, .item5, .item6, .item7, .item8, .item9{
     width: 100px;
-    height: 500px; 
-    text-align: center;
-    color: rgb(189, 18, 18);
-    font-family: sans-serif;
-    margin: 10px
-    
-}
-
-
-.item1 , .item2, .item3, .item4, .item5, .item6, .item7, .item8{   /*coluna2*/
-    align-content: center;
-    background-color: white;
-    width: 150px;
     height: 45px;
     margin: 5px;
-    padding: 5px;   
-    font-size: 25px;
+    background-color: white;
+    color: rgb(189, 18, 18);
+    align-content: center;
+    padding: 3px;
+    font-size: 22px;
+    font-family: sans-serif;
     box-shadow: 10px 10px 5px 2px rgb(183, 183, 183); 
     cursor: pointer; 
 }
+/*fim coluna2*/
 
 #linha-horizontal {
     border: 1px solid #a2a2a2;
@@ -109,6 +101,8 @@ h1{
     justify-content: space-evenly;
 
 }
+
+/*buttons*/
 
 .Confirmar, .Adicionar, .cancelar{
     border-radius: 30px;
@@ -122,8 +116,6 @@ h1{
     margin-left: 20px;
     margin-top: 10px;
     margin-bottom: 20px;
-    box-shadow: 3px 2px 1px 1px rgb(183, 183, 183); 
-    cursor: pointer; 
 }
 .cancelar{
     background-color: #FF3131;  
@@ -137,3 +129,25 @@ h1{
     background-color: rgb(0, 0, 0);
     color: white;
 }
+
+.Adicionar:hover{
+    background-color: #000000;
+    box-shadow: 3px 5px 3px 3px rgb(165, 165, 165);
+    cursor: pointer;
+
+}
+.Confirmar:hover{
+    box-shadow: 3px 5px 3px 3px rgb(165, 165, 165);
+    cursor: pointer;
+}
+.cancelar:hover{
+    box-shadow: 3px 5px 3px 3px rgb(165, 165, 165);
+    cursor: pointer;
+}
+
+
+
+
+
+
+

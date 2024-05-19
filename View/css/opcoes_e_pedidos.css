@@ -57,7 +57,6 @@ ul, li{
     font-size: 40px;    
     background-color: white;
     border-radius: 20px; 
-    cursor: pointer;
     border: none;   
 }
 
@@ -72,6 +71,8 @@ ul, li{
 
 }
 
+/*buttons*/
+
 .Confirmar, .Adicionar, .cancelar{
     border-radius: 30px;
     width: 200px;
@@ -84,7 +85,6 @@ ul, li{
     margin-left: 20px;
     margin-top: 10px;
     margin-bottom: 20px;
-    box-shadow: 3px 2px 1px 1px rgb(183, 183, 183); 
 }
 
 .cancelar{
@@ -100,4 +100,19 @@ ul, li{
     background-color: rgb(0, 0, 0);
     color: white;
 
+}
+
+.Confirmar:hover{
+    box-shadow: 3px 5px 3px 3px rgb(165, 165, 165);
+    cursor: pointer;
+}
+
+.Adicionar:hover{
+    box-shadow: 3px 5px 3px 3px rgb(165, 165, 165);
+    cursor: pointer;
+}
+
+.cancelar:hover{
+    box-shadow: 3px 5px 3px 3px rgb(165, 165, 165);
+    cursor: pointer;
 }

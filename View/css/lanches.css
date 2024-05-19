@@ -2,7 +2,6 @@
     padding: 0px;
     margin: 0px;
 }
-
 body{
     background-color: #D9D9D9;
 }
@@ -11,6 +10,15 @@ nav{
     background-color: #E1A83A;
     width: 100%;
     height: 80px;   
+}
+
+nav > ul{
+    list-style-type: none;
+}
+nav > ul > li > a{
+    text-decoration: none;
+    color: black;
+    padding: 5px;
 }
 
 img{
@@ -26,7 +34,11 @@ ul, li{
     font-size: 20px;
     font-weight: bold;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    
+}
+
+main{
+    width: 100%; 
+    background-color: rgb(215, 214, 214);
 }
 
 h1{
@@ -38,18 +50,18 @@ h1{
 }
 
 .conteiner{
-    height: 60vh;
-    display: flex;
+    height: 70vh;
+    display: flex;  
     justify-content: center;
     align-items: center;
-    margin: 20px;
 }
 
 .coluna1{
     width: 300px;
-    height: 400px;    
+    height: 500px;    
     font-family: sans-serif;
-}
+    margin-right: 10px;
+}   
 
 .coluna1 :hover{
     background-color: #E1A83A;
@@ -60,40 +72,39 @@ h1{
     color:#880016 ;
 }
 
-.item01, .item02, .item03, .item04, .item05, .item06{ /*coluna1*/
+/*<<<coluna01>>>*/
+.item01, .item02, .item03, .item04, .item05, .item06, .item07, .item08{ 
     background-color: white;
-    width: 190;
-    height:40px;
+    width: 300px;
+    height:45px;
     margin: 5px;
     align-content: center;
     border-radius: 10px;
-    padding: 5px;
-    font-size: 25px;
-    margin-bottom: 10px;
+    padding: 5px; 
+    font-size: 22px;
     box-shadow: 10px 10px 5px 2px rgb(183, 183, 183); 
-    cursor: pointer;
-    
+    cursor: pointer; 
 }
 
 .coluna2{
-    width: 150px;
-    height: 400px;
+    width: 100px;
+    height: 500px; 
     text-align: center;
     color: rgb(189, 18, 18);
     font-family: sans-serif;
-    margin: 10px;  
+    margin: 10px
+    
 }
 
-
-.item1 , .item2, .item3, .item4, .item5, .item6{    /*coluna2*/
+/*coluna2*/
+.item1 , .item2, .item3, .item4, .item5, .item6, .item7, .item8{   
     align-content: center;
     background-color: white;
-    width: 100px;
-    height: 40px;
+    width: 150px;
+    height: 45px;
     margin: 5px;
-    margin-bottom: 10px;
-    padding: 5px;
-    font-size: 25px;   
+    padding: 5px;   
+    font-size: 25px;
     box-shadow: 10px 10px 5px 2px rgb(183, 183, 183); 
     cursor: pointer; 
 }
@@ -109,6 +120,8 @@ h1{
 
 }
 
+/*buttons*/
+
 .Confirmar, .Adicionar, .cancelar{
     border-radius: 30px;
     width: 200px;
@@ -121,8 +134,6 @@ h1{
     margin-left: 20px;
     margin-top: 10px;
     margin-bottom: 20px;
-    box-shadow: 3px 2px 1px 1px rgb(183, 183, 183); 
-    cursor: pointer; 
 }
 .cancelar{
     background-color: #FF3131;  
@@ -135,4 +146,19 @@ h1{
 .Adicionar{
     background-color: rgb(0, 0, 0);
     color: white;
+}
+
+.Adicionar:hover{
+    background-color: #000000;
+    box-shadow: 3px 5px 3px 3px rgb(165, 165, 165);
+    cursor: pointer;
+
+}
+.Confirmar:hover{
+    box-shadow: 3px 5px 3px 3px rgb(165, 165, 165);
+    cursor: pointer;
+}
+.cancelar:hover{
+    box-shadow: 3px 5px 3px 3px rgb(165, 165, 165);
+    cursor: pointer;
 }

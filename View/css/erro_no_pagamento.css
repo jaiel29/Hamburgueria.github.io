@@ -49,6 +49,8 @@ h1{
 
 }
 
+/*buttons*/
+
 .conteiner > input{
     margin: 20px;
     padding: 5px;
@@ -77,3 +79,18 @@ h1{
     color: white;   
     width: 450px;
 }
+
+.cancelar:hover{
+    box-shadow: 3px 5px 3px 3px rgb(165, 165, 165);
+}
+
+.mudar_pgmt:hover{
+    box-shadow: 3px 5px 3px 3px rgb(165, 165, 165);
+}
+
+.tentar_novamente:hover{
+    box-shadow: 3px 5px 3px 3px rgb(165, 165, 165);
+}
+
+
+
