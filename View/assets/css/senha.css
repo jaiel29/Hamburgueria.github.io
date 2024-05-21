@@ -101,19 +101,14 @@ nav{
 }
 
 .Quadrado {
-    width: 190px;
+    width: 500px;
     height: 254px;
+    margin: 0 auto;
+    margin-top: 75px;
     border-radius: 50px;
     background: #bab8b8;
     box-shadow: 20px 20px 60px #bebebe,
                   -20px -20px 60px #ffffff;
-   }
-
-   .Quadrado {
-    width: 500px; 
-    margin: 0 auto; 
-    margin-top: 75px;
-
    }
 
    /*buttons*/
