@@ -18,7 +18,7 @@ try:
         password=senha,
         database=database
     )
-
+    print(db_connection)
     # Teste de conexão
     if db_connection.is_connected():
         print("Conectado com sucesso")
