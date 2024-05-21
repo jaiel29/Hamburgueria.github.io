@@ -15,7 +15,7 @@ Desenvolver um sistema de gestão para uma hamburgueria, visando otimizar seus p
 - [Alex Abel Costa Silva](https://github.com/AllexAbel) --> Front-End
 - [Beatriz Kelly Lopes Rocha](https://github.com/beatrizklr) --> DBA/QA
 - [Bianca Vieira Santos](https://github.com/bincst18) --> Web Designer
-- [Cauê Alves Barreto]() --> DBA
+- [Cauê Alves Barreto](https://github.com/cauealb) --> DBA
 - [Jaiel Johabe Macedo Barboza](https://github.com/jaiel29)  --> QA
 - [João Vitor Alves de Alencar](https://github.com/alzolansk) --> Backend
 - [Kauhã Conceição de Moura](https://github.com/Kauhacdm) --> Front-End
