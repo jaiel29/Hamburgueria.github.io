@@ -11,8 +11,7 @@ h1{
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    
+    flex-direction: row;
 }
 
 .coluna1{
@@ -122,6 +121,7 @@ h1{
     cursor: pointer;
 }
 main{
+    padding-top: 10px;
     border-bottom: 1px solid #a2a2a2;
 }
 section{
