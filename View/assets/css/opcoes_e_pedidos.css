@@ -1,4 +1,4 @@
-.conteiner{
+.conteiner-main{
     width: 100vw;
     height: 70vh;
     display: flex;
@@ -30,20 +30,16 @@
     border: none;   
 }
 
-.linha-horizontal {
-    border: 1px solid #a2a2a2;
-}
-
-.conteiner1{
+.conteiner-section{
     background-color:rgb(215, 214, 214) ;
     display: flex;
+    padding-top: 25px;
     justify-content: space-evenly;
-
 }
 
 /*buttons*/
 
-.Confirmar, .Adicionar, .cancelar{
+.Confirmar, .Adicionar, .Cancelar{
     border-radius: 30px;
     width: 200px;
     height: 40px;
@@ -57,7 +53,7 @@
     margin-bottom: 20px;
 }
 
-.cancelar{
+.Cancelar{
     background-color: #FF3131;  
 
 }
@@ -82,7 +78,13 @@
     cursor: pointer;
 }
 
-.cancelar:hover{
+.Cancelar:hover{
     box-shadow: 3px 5px 3px 3px rgb(165, 165, 165);
     cursor: pointer;
+}
+main{
+    border-bottom: 1px solid #a2a2a2;
+}
+section{
+    height: 113px;
 }

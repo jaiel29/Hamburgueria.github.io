@@ -12,14 +12,14 @@ main{
     height: 78vh;
 }
 
-.conteiner{
+.conteiner-main{
+    width: 100vw;
     height: 70vh;
-    display: flex;  
+    display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 50px;
+    flex-direction: column;   
 }
-
 /*<<<coluna01>>>*/
 .item01, .item02, .item03, .item04, .item05, .item06, .item07, .item08, .item09{    
     width: 300px;
@@ -65,16 +65,16 @@ main{
     border: 1px solid #a2a2a2;
 }
 
-.conteiner1{
+.conteiner-section{
     background-color:rgb(215, 214, 214) ;
     display: flex;
+    padding-top: 25px;
     justify-content: space-evenly;
-
 }
 
 /*buttons*/
 
-.Confirmar, .Adicionar, .cancelar{
+.Confirmar, .Adicionar, .Cancelar{
     border-radius: 30px;
     width: 200px;
     height: 40px;
@@ -87,8 +87,10 @@ main{
     margin-top: 10px;
     margin-bottom: 20px;
 }
-.cancelar{
+
+.Cancelar{
     background-color: #FF3131;  
+
 }
 
 .Confirmar{
@@ -98,21 +100,28 @@ main{
 .Adicionar{
     background-color: rgb(0, 0, 0);
     color: white;
-}
-
-.Adicionar:hover{
-    background-color: #000000;
-    box-shadow: 3px 5px 3px 3px rgb(165, 165, 165);
-    cursor: pointer;
 
 }
+
 .Confirmar:hover{
     box-shadow: 3px 5px 3px 3px rgb(165, 165, 165);
     cursor: pointer;
 }
-.cancelar:hover{
+
+.Adicionar:hover{
     box-shadow: 3px 5px 3px 3px rgb(165, 165, 165);
     cursor: pointer;
+}
+
+.Cancelar:hover{
+    box-shadow: 3px 5px 3px 3px rgb(165, 165, 165);
+    cursor: pointer;
+}
+main{
+    border-bottom: 1px solid #a2a2a2;
+}
+section{
+    height: 113px;
 }
 
 
