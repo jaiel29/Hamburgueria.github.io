@@ -41,20 +41,6 @@ h1{
     color:#880016 ;
 }
 
-/*<<<coluna01>>>*/
-.item01, .item02, .item03, .item04, .item05, .item06, .item07, .item08{ 
-    background-color: white;
-    width: 300px;
-    height:45px;
-    margin: 5px;
-    align-content: center;
-    border-radius: 10px;
-    padding: 5px; 
-    font-size: 22px;
-    box-shadow: 10px 10px 5px 2px rgb(183, 183, 183); 
-    cursor: pointer; 
-}
-
 .coluna2{
     width: 150px;
     height: 400px; 
@@ -63,19 +49,6 @@ h1{
     font-family: sans-serif;
     margin: 20px;
     
-}
-
-/*coluna2*/
-.item1 , .item2, .item3, .item4, .item5, .item6, .item7, .item8{   
-    align-content: center;
-    background-color: white;
-    width: 150px;
-    height: 45px;
-    margin: 5px;
-    padding: 5px;   
-    font-size: 25px;
-    box-shadow: 10px 10px 5px 2px rgb(183, 183, 183); 
-    cursor: pointer; 
 }
 
 .conteiner-section{
@@ -135,4 +108,43 @@ main{
 }
 section{
     height: 113px;
+}
+.qtd{
+    width: 100px;
+    height: 50px;
+}
+
+
+.pricetag{   /*coluna2*/
+    align-content: center;
+    background-color: white;
+    width: 150px;
+    height: 45px;
+    margin: 5px;
+    padding: 9px;   
+    font-size: 25px;
+    box-shadow: 10px 10px 5px 2px rgb(183, 183, 183); 
+    cursor: pointer; 
+    
+}
+
+.item-checkbox-label {
+    display: flex; 
+    align-items: center;
+    margin-bottom: 5px;
+    padding: 10px; 
+    width: 400px;
+    background-color: white;
+}
+
+.item-checkbox-label input {
+    order: 1;
+    margin-right: 10px;
+    margin-left: 10px;
+    width: 40px;
+    height: 45px;
+}
+
+.item-checkbox-label span {
+    order: 2; /* Mantém a ordem do span (texto) */
 }
