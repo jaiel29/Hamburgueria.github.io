@@ -5,11 +5,15 @@ main{
 }
 
 h1{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
     font-size: 40px;
     font-family: sans-serif;
+}
+.container-titulo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
 }
 
 .conteiner-main{
@@ -18,7 +22,7 @@ h1{
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    flex-direction: row;
     
 }
 

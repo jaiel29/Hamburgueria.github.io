@@ -1,9 +1,13 @@
 h1{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
     font-size: 40px;
     font-family: sans-serif;
+}
+.container-titulo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
 }
 .conteiner-main{
     width: 100vw;
@@ -50,7 +54,7 @@ h1{
     text-align: center;
     color: rgb(189, 18, 18);
     font-family: sans-serif;
-    margin: 10px;  
+    margin: 20px;  
 }
 
 
@@ -88,7 +92,6 @@ h1{
     align-content: center;
     margin-left: 20px;
     margin-top: 10px;
-    margin-bottom: 20px;
 }
 
 .Cancelar{
