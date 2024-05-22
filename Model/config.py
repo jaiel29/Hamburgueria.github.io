@@ -11,6 +11,12 @@ usuario = os.getenv('USER_NAME')
 senha = os.getenv('PWD_NAME')
 database = os.getenv('DB_NAME')
 
+# Verificar se as variáveis de ambiente foram carregadas corretamente
+print(f"Host: {host}")
+print(f"Usuário: {usuario}")
+print(f"Senha: {'*****' if senha else 'None'}")
+print(f"Database: {database}")
+
 try:
     db_connection = mysql.connector.connect(
         host=host,
