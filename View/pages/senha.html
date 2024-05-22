@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,21 +9,38 @@
     <link rel="shortcut icon" href="../assets/images/favicon_io (3)/favicon-32x32.png" type="image/x-icon">
     <link rel="stylesheet" href="../assets/css/nav.css">
 </head>
+
 <body>
-    <div class="Linha-horizontal"></div>
     <nav>
         <img src="../assets/images/logonoveburguerbar.png" alt="Logotipo da Nove Burguerbar">
-    
-     <label class="menu" for="menu">
+
+        <label class="menu" for="menu">
             <input type="checkbox" id="menu">
             <span></span>
             <span></span>
             <span></span>
-     </nav>
+    </nav>
 
-     <!---buttons-->
+    <!---buttons-->
 
-     <div class="Quadrado"></div>
-     <button class="Imprimir"><p>Imprimir</p></div>
+    <div class="Quadrado"></div>
+    <div class="botoes">
+        <button class="Voltar">Voltar</button>
+        <button onclick="imprimirConteudo()" class="Imprimir">Imprimir</button>
+    </div>
 </body>
+<script>
+    function imprimirConteudo() {
+        var conteudo = document.querySelector('.Quadrado').innerHTML;
+        var janelaImprimir = window.open('', 'Impressão', 'height=600, width=800');
+        janelaImprimir.document.write('<html><head><title>Impressão</title></head><body>');
+            janelaImprimir.document.write('<h1>Conteúdo para impressão</h1>');
+            janelaImprimir.document.write(conteudo);
+            janelaImprimir.document.write('</body></html>');
+            // Imprime o conteúdo na nova janela
+            janelaImprimir.print();
+            // Fecha a nova janela após a impressão
+            janelaImprimir.close();
+    }
+</script>
 </html>

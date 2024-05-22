@@ -13,7 +13,7 @@ h1{
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 15px;
+    padding-top: 10px;
 }
 
 .conteiner-main{
@@ -28,9 +28,8 @@ h1{
 
 .coluna1{
     width: 300px;
-    height: 500px;    
+    height: 400px;    
     font-family: sans-serif;
-    margin-right: 10px;
 }   
 
 .coluna1 :hover{
@@ -57,12 +56,12 @@ h1{
 }
 
 .coluna2{
-    width: 100px;
-    height: 500px; 
+    width: 150px;
+    height: 400px; 
     text-align: center;
     color: rgb(189, 18, 18);
     font-family: sans-serif;
-    margin: 10px
+    margin: 20px;
     
 }
 
