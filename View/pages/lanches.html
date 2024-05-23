@@ -21,7 +21,6 @@
                 <li><a href="/">Home</a></li>
                 <li><a href="cardapio">Cardapio</a></li>
                 <li><a href="status-pedido">Pedidos</a></li>
-                <li><a href="login">Login</a></li>
 
             </ul>
         </nav>
@@ -41,7 +40,8 @@
                     <label class="item-checkbox-label">
                         <span>{{ lanche.nomeLanche }}</span>
                         <input type="checkbox" name="pedidos" value="{{ lanche.nomeLanche }}" class="item-checkbox">
-                        <input type="number" name="quantidades" id="quantidades" class="qtd" placeholder="Quantidade" min="1">
+                        <input type="number" name="quantidades" id="quantidades" class="qtd" placeholder="Quantidade"
+                            min="1">
                     </label>
                     {% endfor %}
 
@@ -50,7 +50,9 @@
                 <div class="coluna2">
 
                     {% for lanche in lanches %}
-                    <div class="pricetag"><p class="i">R${{ lanche['preco'] }}</p></div>
+                    <div class="pricetag">
+                        <p class="i">R${{ lanche['preco'] }}</p>
+                    </div>
                     {% endfor %}
 
                 </div>

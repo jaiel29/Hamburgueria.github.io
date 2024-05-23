@@ -28,7 +28,10 @@ main{
     background-color: white;
     border: none;
 }
-
+a{
+    text-decoration: none;
+    color:black;
+}
 .pedido:hover{
     background-color: #E1A83A;
     color:white ;
