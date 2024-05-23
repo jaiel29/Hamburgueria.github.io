@@ -28,7 +28,7 @@ main{
     background-color: white;
     border: none;
 }
-a{
+button a{
     text-decoration: none;
     color:black;
 }
