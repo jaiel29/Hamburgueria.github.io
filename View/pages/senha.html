@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../assets/css/senha.css">
     <link rel="shortcut icon" href="../assets/images/favicon_io (3)/favicon-32x32.png" type="image/x-icon">
     <link rel="stylesheet" href="../assets/css/nav.css">
+    <script src="../assets/scripts/imprimir.js" defer></script>
 </head>
 
 <body>
@@ -19,28 +20,18 @@
             <span></span>
             <span></span>
             <span></span>
+        </label>
     </nav>
 
     <!---buttons-->
 
-    <div class="Quadrado"></div>
+    <div class="quadrado">
+        <p>552</p>
+    </div>
     <div class="botoes">
         <button class="Voltar">Voltar</button>
         <button onclick="imprimirConteudo()" class="Imprimir">Imprimir</button>
     </div>
+    
 </body>
-<script>
-    function imprimirConteudo() {
-        var conteudo = document.querySelector('.Quadrado').innerHTML;
-        var janelaImprimir = window.open('', 'Impressão', 'height=600, width=800');
-        janelaImprimir.document.write('<html><head><title>Impressão</title></head><body>');
-            janelaImprimir.document.write('<h1>Conteúdo para impressão</h1>');
-            janelaImprimir.document.write(conteudo);
-            janelaImprimir.document.write('</body></html>');
-            // Imprime o conteúdo na nova janela
-            janelaImprimir.print();
-            // Fecha a nova janela após a impressão
-            janelaImprimir.close();
-    }
-</script>
 </html>

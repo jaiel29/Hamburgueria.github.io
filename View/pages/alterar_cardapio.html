@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bebidas</title>
+    <link rel="shortcut icon" href="../assets/images/favicon_io (3)/favicon-32x32.png" type="image/x-icon">
+    <link rel="stylesheet" href="../assets/css/nav.css">
+    <link rel="stylesheet" href="../assets/css/alterar_cardapio.css">
+</head>
+
+<body>
+    <nav>
+        <img src="../assets/images/logonoveburguerbar.png" alt="Logotipo da Nove Burguerbar">
+        <ul>
+            <li><a href="/">HOME</a></li>
+            <li><a href="cardapio">Cardapio</a></li>
+            <li><a href="status-pedido">Pedidos</a></li>
+            <li><a href="login">login</a></li>
+
+        </ul>
+    </nav>
+
+    <main>
+
+        <div id="conteudo-form">
+            <h1>Editar Cardápio</h1>
+            <div class="conteudo">
+                <label for="escolha"><p>Classificação</p></label>
+                <select id="escolha" name="escolha">
+                    <option value="opcao1">Lanche</option>
+                    <option value="opcao2">Bebidas</option>
+                    <option value="opcao3">Porções</option>
+                </select>
+            </div>
+            <div class="conteudo">
+                <p>Código:</p>
+                <input type="number" placeholder="Digite aqui">
+            </div>
+            <div class="conteudo">
+                <p>Nome do lanche:</p>
+                <input type="text" placeholder="Digite aqui" required autofocus>
+            </div>
+            <div class="conteudo">
+                <p>Preço:</p>
+                <input type="text" placeholder="Digite aqui">
+            </div>
+            <div class="conteudo">
+                <label for="telefone"><p>Telefone:</p></label>
+                <input type="tel" placeholder=" Digite seu telefone" autocomplete="on">
+            </div>
+        </div>
+
+    </main>
+    <section>
+        <div class="conteiner-section">
+            <button class="voltar">Voltar</button>
+            <button class="cancelar">Cancelar</button>
+            <button class="confirmar">Confirmar</button>
+        </div>
+    </section>
+</body>
+
+</html>
