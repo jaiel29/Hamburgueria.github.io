@@ -8,30 +8,40 @@
     <link rel="shortcut icon" href="../assets/images/favicon_io (3)/favicon-32x32.png" type="image/x-icon">
     <link rel="stylesheet" href="../assets/css/nav.css">
     <link rel="stylesheet" href="../assets/css/cadastro.css">
+    <link rel="stylesheet" href="../assets/css/botoes.css">
 </head>
 
 <body>
-    <nav>
-        <img src="../assets/images/logonoveburguerbar.png" alt="Logotipo da Nove Burguerbar">
-    </nav>
-    <main>
-        <div class="">
-            <img src="">
-            <h1></h1>
+    <form action="{{ url_for('cadastro') }}" method="POST">
+        <nav>
+            <img src="../assets/images/logonoveburguerbar.png" alt="Logotipo da Nove Burguerbar">
+            <ul>
+                <li>Oi</li>
+            </ul>
+        </nav>
+        <main>
+            <div class="conta">
+                <img src="../assets/images/perfil.png" id="perfil" alt="Ícone de perfil">
+                <h1>Criar conta</h1>
+            </div>
+            <div class="conteudo">
+                <p class="texto-input">Coloque o seu e-mail</p>
+                <input type="email" placeholder="  Digite aqui" autocomplete="on" spellcheck="true" required autofocus>
+                <p class="texto-input">Coloque o seu CPF</p>
+                <input type="text" placeholder="  Digite aqui" autocomplete="on" spellcheck="true" required autofocus>
+                <p class="texto-input">Coloque o seu número de telefone</p>
+                <input type="number" placeholder="  Digite aqui" autocomplete="on" spellcheck="true" required autofocus>
+                <p class="texto-input">Coloque o seu endereço</p>
+                <input type="text" placeholder="  Digite aqui" autocomplete="on" spellcheck="true" required autofocus>
+                <p class="texto-input">Coloque a sua senha</p>
+                <input type="password" placeholder="  Digite aqui" autocomplete="on" spellcheck="true" required autofocus>
+            </div>
+        </main>
+        <div class="botao">
+            <button type="submit" class="cancelar">Cancelar</button>
+            <button type="submit" id="criar">Criar conta</button>
         </div>
-        <div class="">
-            <p class="texto-input">Coloque o seu e-mail</p>
-            <input type="email" placeholder="Digite aqui" autocomplete="on" spellcheck="true" required autofocus>
-            <p class="texto-input">Coloque o seu CPF</p>
-            <input type="text" placeholder="Digite aqui" autocomplete="on" spellcheck="true" required autofocus>
-            <p class="texto-input">Coloque o seu número de telefone</p>
-            <input type="number" placeholder="Digite aqui" autocomplete="on" spellcheck="true" required autofocus>
-            <p class="texto-input">Coloque o seu endereço</p>
-            <input type="text" placeholder="Digite aqui" autocomplete="on" spellcheck="true" required autofocus>
-            <p class="texto-input">Coloque a sua senha</p>
-            <input type="password" placeholder="Digite aqui" autocomplete="on" spellcheck="true" required autofocus>
-        </div>
-    </main>
+    </form>
 </body>
 
 </html>
