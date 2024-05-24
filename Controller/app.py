@@ -1,14 +1,16 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, session, flash
 import mysql.connector
 import os
 from dotenv import load_dotenv
 from pathlib import Path
 import config
+from werkzeug.security import generate_password_hash, check_password_hash
 
-dotenv_path = Path('.env')
+dotenv_path = Path('.env.local')
 load_dotenv(dotenv_path=dotenv_path)
 
 app = Flask(__name__, static_folder='../View/assets',template_folder='../View/pages')
+app.secret_key = os.getenv('SECRET_KEY', os.urandom(24))
 
 def get_db_connection():
     host = os.getenv('HOST_NAME')
@@ -19,12 +21,14 @@ def get_db_connection():
     return mysql.connector.connect(
         host=host,
         user=usuario,
-        password=senha
+        password=senha,
         database=database
     )
 
 @app.route('/')
 def index():
+    if not session.get('logged_in'):
+        return redirect(url_for('login'))
     return render_template('index.html')
 
 @app.route('/cardapio')
@@ -90,6 +94,62 @@ def pagamentosucesso():
 @app.route('/status-pedido')
 def pedidostatus():
     return render_template('status_do_pedido.html')
+
+@app.route('/cadastro', methods=['GET', 'POST'])
+def cadastro():
+    if request.method == 'POST':
+        username = request.form['login']
+        password = request.form['senha']
+        idusuario = request.form['cpf']
+        permissao = request.form['telefone']
+
+        connection = get_db_connection()
+        cursor = connection.cursor()
+        cursor.execute("INSERT INTO usuario (idusuario, nome, senha, permissao) VALUES (%s, %s, %s, %s)", (idusuario, username, password, permissao))
+        connection.commit()
+        cursor.close()
+        connection.close()
+
+        return redirect(url_for('login'))
+
+    return render_template('cadastro.html')
+
+def verify_credentials(username, password):
+    connection = get_db_connection()
+    cursor = connection.cursor(dictionary=True)
+    cursor.execute("SELECT * FROM usuario WHERE nome = %s", (username,))
+    user = cursor.fetchone()
+    cursor.close()
+    connection.close()
+
+    if user and user['senha'] == password:
+        return True
+    else:
+        return False
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        username = request.form['login']
+        password = request.form['senha']
+        
+        connection = get_db_connection()
+        cursor = connection.cursor(dictionary=True)
+        cursor.execute("SELECT * FROM usuario WHERE nome = %s", (username,))
+        user = cursor.fetchone()
+        cursor.close()
+        connection.close()
+
+        if verify_credentials(username, password):
+            session['logged_in'] = True
+            session['username'] = username
+            return redirect(url_for('index'))
+        else:
+            mensagem = 'E-mail ou senha incorretos. Tente novamente.'
+            return render_template('login.html', mensagem=mensagem)
+
+    
+    return render_template('login.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
