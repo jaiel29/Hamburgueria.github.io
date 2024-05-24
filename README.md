@@ -68,6 +68,7 @@ Desenvolver um sistema de gestão para uma hamburgueria, visando otimizar seus p
 - [pip install mysql-connector-python](https://www.geeksforgeeks.org/how-to-install-mysql-connector-package-in-python/)
 - [pip install Flask](https://flask.palletsprojects.com/en/2.3.x/installation/)
 - [pip install python-dotenv](https://pypi.org/project/python-dotenv/)
+- [pip install Werkzeug](https://pypi.org/project/Werkzeug/)
 
 ## Variáveis de Ambiente
 _Certifique-se de definir os campos de chave e valor, em seu repositório local, com base nos parâmetros definidos no banco de dados utilizado._
@@ -76,7 +77,7 @@ _Certifique-se de definir os campos de chave e valor, em seu repositório local,
 - USER_NAME --> nome do usuário de SGBD
 - PWD_NAME --> senha do SGBD
 - DB_NAME --> nome do banco
-
+- SECRET_KEY --> chave de segurança
 
 ## Rodando localmente
 
@@ -95,9 +96,7 @@ Entre no diretório do projeto
 Instale as dependências (certifique-se de ter o python instalado)
 
 ```bash
-  pip install mysql-connector-python
-  pip install Flask
-  pip innstall python-dotenv
+  pip install mysql-connector-python, Flask, python-dotenv, Werkzeug
 ```
 Crie um arquivo .env.local no Model e defina as variáveis locais
 
@@ -106,4 +105,5 @@ Crie um arquivo .env.local no Model e defina as variáveis locais
   USER_NAME= 'nome do usuário'
   PWD_NAME='senha do banco'
   DB_NAME='nome do banco'
+  SECRET_KEY='chave de segurança'
 ```
