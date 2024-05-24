@@ -1,7 +1,7 @@
 /*buttons*/
 
 
-#criar, .confirmar, .adicionar, .cancelar{
+#criar, .confirmar, .adicionar, .cancelar, .voltar{
     border-radius: 30px;
     width: 200px;
     height: 40px;
@@ -30,23 +30,19 @@
 }
 
 
-.adicionar{
+.adicionar, .voltar{
     background-color: rgb(0, 0, 0);
     color: white;
-
 }
 
-.confirmar:hover{
+
+.confirmar:hover, #criar:hover{
     box-shadow: 3px 5px 3px 3px rgb(165, 165, 165);
     cursor: pointer;
 }
 
-#criar:hover{
-    box-shadow: 3px 5px 3px 3px rgb(165, 165, 165);
-    cursor: pointer;
-}
 
-.adicionar:hover{
+.adicionar:hover, .voltar:hover{
     box-shadow: 3px 5px 3px 3px rgb(165, 165, 165);
     cursor: pointer;
 }
