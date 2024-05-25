@@ -1,16 +1,23 @@
-from flask import Flask, render_template, request, redirect, url_for, session, flash
-import mysql.connector
+from flask import Flask, render_template, request, redirect, url_for, session, flash 
 import os
-from dotenv import load_dotenv
+import mysql.connector
+from dotenv import load_dotenv 
 from pathlib import Path
-import config
-from werkzeug.security import generate_password_hash, check_password_hash
+from werkzeug.security import generate_password_hash, check_password_hash 
 
-dotenv_path = Path('.env.local')
+dotenv_path = Path('Model/.env.local')
 load_dotenv(dotenv_path=dotenv_path)
 
-app = Flask(__name__, static_folder='../View/assets',template_folder='../View/pages')
-app.secret_key = os.getenv('SECRET_KEY', os.urandom(24))
+host = os.getenv('HOST_NAME')
+usuario = os.getenv('USER_NAME')
+senha = os.getenv('PWD_NAME')
+database = os.getenv('DB_NAME')
+
+# Verificar se as variáveis de ambiente foram carregadas corretamente
+print(f"Host: {host}")
+print(f"Usuário: {usuario}")
+print(f"Senha: {'*****' if senha else 'None'}")
+print(f"Database: {database}")
 
 def get_db_connection():
     host = os.getenv('HOST_NAME')
@@ -25,30 +32,40 @@ def get_db_connection():
         database=database
     )
 
+try:
+    
+    db_connection = mysql.connector.connect(
+        host=host,
+        user=usuario,
+        password=senha,
+        database=database
+    )
+    print(db_connection)
+    # Teste de conexão
+    if db_connection.is_connected():
+        print("Conectado com sucesso")
+    else:
+        print("Algo deu errado")
+
+except mysql.connector.Error as erro:
+    print("Algo deu errado:", erro)
+
+app = Flask(__name__, static_folder='../assets',template_folder='../pages')
+app.secret_key = os.getenv('SECRET_KEY', os.urandom(24))
+
+
 @app.route('/')
 def index():
     if not session.get('logged_in'):
         return redirect(url_for('login'))
     return render_template('index.html')
 
-@app.route('/cardapio')
-def cardapio():
-    connection = get_db_connection()
-    cursor = connection.cursor()
-    cursor.execute("SELECT * FROM lanche")
-    cardapio_itens = cursor.fetchall()
-    cursor.close()
-    connection.close()
-
-    return render_template('cardapio.html', cardapio_itens=cardapio_itens)
-    #return render_template('cardapio.html')
-
 @app.route('/lanche', methods=['GET', 'POST'])
 def lanche():
     print("Entrou na rota /lanche")
     connection = get_db_connection()
     cursor = connection.cursor(dictionary=True)
-    cursor.execute("SELECT * FROM LANCHE")
+    cursor.execute("SELECT e.nomeItem, c.preco FROM Estoque e INNER JOIN Cardapio c ON e.idItem = c.idItem WHERE e.tipoItem = 'lanche'")
     lanches = cursor.fetchall()
     cursor.close()
     connection.close()
@@ -76,12 +93,15 @@ def pagamento():
     # Adiciona o lanche selecionado na tabela de pedidos (exemplo)
     connection = get_db_connection()
     cursor = connection.cursor()
-    for nomeLanche in nomeLanches:
-        cursor.execute("INSERT INTO pedidos (nome_do_pedido) VALUES (%s)", (nomeLanche,))
+    for nomeLanche, quantidade in zip(nomeLanches, quantidades):
+        cursor.execute("INSERT INTO Pedido (idCliente, itemPed, valTotal, dataHoraPed) VALUES (%s, %s, %s, NOW())", (session['idCliente'], nomeLanche, quantidade, ))
         connection.commit()
-    for quantidade in quantidades:
-        cursor.execute("INSERT INTO pedidos (quantidade) VALUES (%s)", (quantidade,))
-        connection.commit()
+   # for nomeLanche in nomeLanches:
+    #    cursor.execute("INSERT INTO Pedido (nome_do_pedido) VALUES (%s)", (nomeLanche,))
+     #   connection.commit()
+    #for quantidade in quantidades:
+      #  cursor.execute("INSERT INTO Pedido (quantidade) VALUES (%s)", (quantidade,))
+       # connection.commit()
     cursor.close()
     connection.close()
 
@@ -98,15 +118,26 @@ def pedidostatus():
 @app.route('/cadastro', methods=['GET', 'POST'])
 def cadastro():
     if request.method == 'POST':
-        username = request.form['login']
+        #username = request.form['login']
+        cpf = request.form['cpf']
+        email = request.form['email']
+        telefone = request.form['telefone']
+        endereco = request.form['endereco']
         password = request.form['senha']
-        idusuario = request.form['cpf']
-        permissao = request.form['telefone']
+
 
         connection = get_db_connection()
         cursor = connection.cursor()
-        cursor.execute("INSERT INTO usuario (idusuario, nome, senha, permissao) VALUES (%s, %s, %s, %s)", (idusuario, username, password, permissao))
+        cursor.execute("INSERT INTO Cadastro (cpf, email, telefone, endereco, senha) VALUES (%s, %s, %s, %s, %s)", (cpf, email, telefone, endereco, password))
         connection.commit()
+        
+        #obtém o idCadastro inserido
+        idCadastro = cursor.lastrowid
+        
+        #inserindo o cliente associado ao idCadastro
+        cursor.execute("INSERT INTO Cliente (idCadastro) VALUES (%s)", (idCadastro,))
+        connection.commit()
+
         cursor.close()
         connection.close()
 
@@ -117,7 +148,7 @@ def cadastro():
 def verify_credentials(username, password):
     connection = get_db_connection()
     cursor = connection.cursor(dictionary=True)
-    cursor.execute("SELECT * FROM usuario WHERE nome = %s", (username,))
+    cursor.execute("SELECT * FROM Cadastro WHERE email = %s AND senha = %s", (username, password))
     user = cursor.fetchone()
     cursor.close()
     connection.close()
@@ -130,15 +161,9 @@ def verify_credentials(username, password):
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        username = request.form['login']
-        password = request.form['senha']
+        username = request.form.get('login')
+        password = request.form.get('senha')
         
-        connection = get_db_connection()
-        cursor = connection.cursor(dictionary=True)
-        cursor.execute("SELECT * FROM usuario WHERE nome = %s", (username,))
-        user = cursor.fetchone()
-        cursor.close()
-        connection.close()
 
         if verify_credentials(username, password):
             session['logged_in'] = True

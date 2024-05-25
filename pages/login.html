@@ -11,6 +11,7 @@
 </head>
 
 <body>
+    <form action="{{ url_for('login') }}" method="POST">
     <nav>
         <img src="../assets/images/logonoveburguerbar.png" alt="Logotipo da Nove Burguerbar">
     </nav>
@@ -20,8 +21,8 @@
         </div>
         <section class="conteudo">
             <label>
-                <input type="email" placeholder="  E-mail/CPF" autocomplete="on" spellcheck="true" required autofocus>
-                <input type="password" placeholder="  Senha" autocomplete="on" spellcheck="true" required autofocus>
+                <input type="email" placeholder="  E-mail/CPF" autocomplete="on" spellcheck="true" required autofocus name="login">
+                <input type="password" placeholder="  Senha" autocomplete="on" spellcheck="true" required autofocus name="senha">
             </label>
         </section>
         <div class="botao">
@@ -29,6 +30,12 @@
             <button>Login</button>
         </div>
     </main>
+</form>
+{% if mensagem %}
+<div class="alert">
+    {{mensagem}}
+</div>
+{% endif %}
 </body>
 
 </html>

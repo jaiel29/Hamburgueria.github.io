@@ -39,7 +39,7 @@
 
                     {% for lanche in lanches %}
                     <label class="item-checkbox-label">
-                        <span>{{ lanche.nomeLanche }}</span>
+                        <span>{{ lanche.nomeItem }}</span>
                         <input type="checkbox" name="pedidos" value="{{ lanche.nomeLanche }}" class="item-checkbox">
                         <input type="number" name="quantidades" id="quantidades" class="qtd" placeholder="Quantidade"
                             min="1">
@@ -52,7 +52,7 @@
 
                     {% for lanche in lanches %}
                     <div class="pricetag">
-                        <p class="i">R${{ lanche['preco'] }}</p>
+                        <p class="i">R${{ lanche.preco }}</p>
                     </div>
                     {% endfor %}
 
