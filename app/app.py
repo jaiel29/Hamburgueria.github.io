@@ -1,55 +1,26 @@
-from flask import Flask, render_template, request, redirect, url_for, session, flash 
+from flask import Flask, render_template, request, redirect, url_for, session 
 import os
+import psycopg2
 import mysql.connector
 from dotenv import load_dotenv 
 from pathlib import Path
-from werkzeug.security import generate_password_hash, check_password_hash 
 from flask_swagger_ui import get_swaggerui_blueprint
 
-dotenv_path = Path('.env')
+dotenv_path = Path('environment/.env')
 load_dotenv(dotenv_path=dotenv_path)
 
-host = os.getenv('HOST_NAME')
-usuario = os.getenv('USER_NAME')
-senha = os.getenv('PWD_NAME')
-database = os.getenv('DB_NAME')
-
-# Verificar se as variáveis de ambiente foram carregadas corretamente
-print(f"Host: {host}")
-print(f"Usuário: {usuario}")
-print(f"Senha: {'*****' if senha else 'None'}")
-print(f"Database: {database}")
-
 def get_db_connection():
-    host = os.getenv('HOST_NAME')
+    host = host
     usuario = os.getenv('USER_NAME')
     senha = os.getenv('PWD_NAME')
     database = os.getenv('DB_NAME')
 
-    return mysql.connector.connect(
+    return psycopg2.connect(
         host=host,
         user=usuario,
         password=senha,
         database=database
     )
-
-try:
-    
-    db_connection = mysql.connector.connect(
-        host=host,
-        user=usuario,
-        password=senha,
-        database=database
-    )
-    print(db_connection)
-    # Teste de conexão
-    if db_connection.is_connected():
-        print("Conectado com sucesso")
-    else:
-        print("Algo deu errado")
-
-except mysql.connector.Error as erro:
-    print("Algo deu errado:", erro)
 
 app = Flask(__name__, static_folder='../assets',template_folder='../pages')
 app.secret_key = os.getenv('SECRET_KEY', os.urandom(24))
