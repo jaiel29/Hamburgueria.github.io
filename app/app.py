@@ -6,8 +6,8 @@ from dotenv import load_dotenv
 from pathlib import Path
 from flask_swagger_ui import get_swaggerui_blueprint
 
-dotenv_path = Path('environment/.env')
-load_dotenv(dotenv_path=dotenv_path)
+#dotenv_path = Path('environment/.env')
+#load_dotenv(dotenv_path=dotenv_path)
 
 def get_db_connection():
     host = host
