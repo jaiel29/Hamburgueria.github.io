@@ -19,7 +19,7 @@
         <ul>
 
             <li><a href="/">Home</a></li>
-            <li><a href="cardapio">Cardapio</a></li>
+            <li><a href="alterar-cardapio">Editar Cardapio</a></li>
             <li><a href="status-pedido">Pedidos</a></li>
 
         </ul>
@@ -80,18 +80,23 @@
 
     <section>
         <div class="conteiner-section">
-            <button class="Adicionar">
-                <a href="pagamento">Adicionar</a>
-            </button>
-            <button class="Cancelar">
+            <button class="adicionar" onclick="redirectToPagamento()">Adicionar</button>
+            <button class="cancelar">
                 <a href="pagamento">Cancelar</a>
             </button>
-            <button class="Confirmar">
+            <button class="confirmar">
                 <a href="pagamento">Confirmar</a>
             </button>
 
         </div>
     </section>
+    <script>
+        function redirectToPagamento() {
+    window.location.href = '/pagamento';
+}
+    </script>
+    <script src="/assets/scripts/logout.js"></script>
+
 </body>
 
 </html>

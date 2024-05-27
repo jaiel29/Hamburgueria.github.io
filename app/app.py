@@ -5,8 +5,8 @@ from dotenv import load_dotenv
 from pathlib import Path
 from werkzeug.security import generate_password_hash, check_password_hash 
 
-dotenv_path = Path('Model/.env.local')
-load_dotenv(dotenv_path=dotenv_path)
+#dotenv_path = Path('.env.local')
+#load_dotenv(dotenv_path=dotenv_path)
 
 host = os.getenv('HOST_NAME')
 usuario = os.getenv('USER_NAME')
@@ -58,6 +58,7 @@ app.secret_key = os.getenv('SECRET_KEY', os.urandom(24))
 def index():
     if not session.get('logged_in'):
         return redirect(url_for('login'))
+    
     return render_template('index.html')
 
 @app.route('/lanche', methods=['GET', 'POST'])
@@ -82,6 +83,10 @@ def bebidas():
 def porcoes():
     return render_template('porcoes.html')
     #return render_template('pedidos.html')
+
+@app.route('/cardapio')
+def cardapio():
+    return render_template('opcoes_e_pedidos.html')
 
 @app.route('/pagamento', methods=['POST', 'GET'])
 def pagamento():
@@ -118,23 +123,21 @@ def pedidostatus():
 @app.route('/cadastro', methods=['GET', 'POST'])
 def cadastro():
     if request.method == 'POST':
-        #username = request.form['login']
         cpf = request.form['cpf']
         email = request.form['email']
         telefone = request.form['telefone']
         endereco = request.form['endereco']
         password = request.form['senha']
 
-
         connection = get_db_connection()
         cursor = connection.cursor()
         cursor.execute("INSERT INTO Cadastro (cpf, email, telefone, endereco, senha) VALUES (%s, %s, %s, %s, %s)", (cpf, email, telefone, endereco, password))
         connection.commit()
-        
-        #obtém o idCadastro inserido
+
+        # Obtém o idCadastro inserido
         idCadastro = cursor.lastrowid
-        
-        #inserindo o cliente associado ao idCadastro
+
+        # Inserindo o cliente associado ao idCadastro
         cursor.execute("INSERT INTO Cliente (idCadastro) VALUES (%s)", (idCadastro,))
         connection.commit()
 
@@ -175,6 +178,65 @@ def login():
 
     
     return render_template('login.html')
+
+@app.route('/logout', methods=['GET'])
+def logout():
+    session.clear()  # Limpa a sessão
+    return 'Logout efetuado com sucesso'
+
+@app.route('/alterar-cardapio', methods=['GET', 'POST'])
+def alterar_cardapio():  
+    if request.method == 'POST':
+        # Obter os dados do formulário
+        classificacao = request.form['escolha']
+        codigo = request.form['codigo']
+        nome_lanche = request.form['nome_lanche']
+        preco = request.form['preco']
+
+        # Validar os dados de entrada
+        if not (codigo.isdigit() and preco.replace('.', '').isdigit()):
+            return render_template('alterar_cardapio.html', error="Dados inválidos")
+
+        # Conectar ao banco de dados
+        try:
+            connection = get_db_connection()
+            cursor = connection.cursor()
+
+            # Obter o idItem correspondente ao código fornecido
+            cursor.execute("SELECT idItem FROM Cardapio WHERE idItem = %s", (codigo,))
+            row = cursor.fetchone()
+            if row:
+                id_item = row[0]
+
+                # Atualizar o cardápio
+                cursor.execute("UPDATE Cardapio SET preco = %s WHERE idItem = %s", (preco, codigo))
+                connection.commit()
+
+                # Atualizar o estoque
+                cursor.execute("UPDATE Estoque SET nomeItem = %s, preco = %s WHERE idItem = %s, tipoItem = %s", (nome_lanche, preco, id_item, classificacao))
+                connection.commit()
+
+                # Fechar conexão e cursor
+                cursor.close()
+                connection.close()
+
+                # Redirecionar para a página de sucesso
+                return render_template('informacoes_salvas.html')
+            else:
+                # Se o código não corresponder a nenhum registro, renderize o template com uma mensagem de erro
+                return render_template('alterar_cardapio.html', error="Código inválido")
+
+        except mysql.connector.Error as e:
+            # Em caso de erro, renderize o template com uma mensagem de erro genérica
+            return render_template('alterar_cardapio.html', error="Erro ao conectar ao banco de dados")
+
+    # Se o método for GET, apenas renderize o template
+    return render_template('alterar_cardapio.html')
+
+@app.route('informacoes_salvas')
+def informacoes_salvas():
+    return render_template('informacoes_salvas.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True)
