@@ -4,8 +4,9 @@ import mysql.connector
 from dotenv import load_dotenv 
 from pathlib import Path
 from werkzeug.security import generate_password_hash, check_password_hash 
+from flask_swagger_ui import get_swaggerui_blueprint
 
-dotenv_path = Path('.env.local')
+dotenv_path = Path('.env')
 load_dotenv(dotenv_path=dotenv_path)
 
 host = os.getenv('HOST_NAME')
@@ -52,7 +53,6 @@ except mysql.connector.Error as erro:
 
 app = Flask(__name__, static_folder='../assets',template_folder='../pages')
 app.secret_key = os.getenv('SECRET_KEY', os.urandom(24))
-
 
 @app.route('/')
 def index():
@@ -233,7 +233,7 @@ def alterar_cardapio():
     # Se o método for GET, apenas renderize o template
     return render_template('alterar_cardapio.html')
 
-@app.route('informacoes_salvas')
+@app.route('/informacoes_salvas')
 def informacoes_salvas():
     return render_template('informacoes_salvas.html')
 
