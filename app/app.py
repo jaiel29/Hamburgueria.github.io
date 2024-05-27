@@ -5,8 +5,8 @@ from dotenv import load_dotenv
 from pathlib import Path
 from werkzeug.security import generate_password_hash, check_password_hash 
 
-#dotenv_path = Path('.env.local')
-#load_dotenv(dotenv_path=dotenv_path)
+dotenv_path = Path('.env.local')
+load_dotenv(dotenv_path=dotenv_path)
 
 host = os.getenv('HOST_NAME')
 usuario = os.getenv('USER_NAME')
